@@ -4,5 +4,15 @@ module.exports = {
     plugins: [
       require('tailwindcss-animate')
     ],
+    theme: {
+      extend: {
+        colors: {
+          background: 'var(--background)',
+          foreground: 'var(--foreground)',
+          ring: 'var(--ring)',
+          // ... other custom colors
+        }
+      }
+    },
     // ... rest of your config
   }
