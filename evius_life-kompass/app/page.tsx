@@ -23,7 +23,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       {/* Content Wrapper */}
       <div className="container mx-auto px-4 py-8 mt-10 max-w-6xl flex-grow">
-        <h1 className="text-2xl font-bold text-center mb-6">Um wen geht es?</h1>
+        <h1 className="translated-ltr text-2xl font-bold text-center mb-6">Um wen geht es?</h1>
 
         {/* Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 justify-items-center">
