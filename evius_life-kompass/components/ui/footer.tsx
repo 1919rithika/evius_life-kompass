@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import Breadcrumb from "./breadcrumb";
+
 
 const Footer = () => {
     return (

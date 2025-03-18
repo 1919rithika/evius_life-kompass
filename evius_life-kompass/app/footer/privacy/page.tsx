@@ -98,8 +98,8 @@ export default function Privacy() {
       Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies before providing any personal information.
     </p>
 
-    <h2 className="text-2xl font-semibold mt-8 mb-4">8. Children's Privacy</h2>
-    <p>
+    <h2 className="text-2xl font-semibold mt-8 mb-4">Children&apos;s Privacy</h2>
+    <p className="mb-4">
       Our services are not intended for children under the age of 13. We do not knowingly collect personal information from children. If you believe we have collected information from a child, please contact us so we can take appropriate action.
     </p>
 
