@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Footer from "@/components/ui/footer";
 import Link from "next/link";
 
