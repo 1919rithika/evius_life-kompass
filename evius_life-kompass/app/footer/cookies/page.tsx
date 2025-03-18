@@ -11,7 +11,7 @@ export default function Cookies() {
           <p>This is our cookie policy explaining how we use cookies.</p>
           <h2 className="text-2xl font-semibold mt-8 mb-4">What Are Cookies?</h2>
           <p className="mb-4">
-            Cookies are small text files that are placed on your device when you visit our website. They help us provide you with a better experience by remembering your preferences, analyzing how you use our site, and supporting our website's functionality.
+            Cookies are small text files that are placed on your device when you visit our website. They help us provide you with a better experience by remembering your preferences, analyzing how you use our site, and supporting our website&apos;s functionality.
           </p>
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">How We Use Cookies</h2>
@@ -36,7 +36,7 @@ export default function Cookies() {
 
           <h3 className="text-xl font-semibold mt-6 mb-3">Performance Cookies</h3>
           <p className="mb-4">
-            Performance cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This data helps us improve our website's performance and user experience.
+            Performance cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This data helps us improve our website&apos;s performance and user experience.
           </p>
 
           <h3 className="text-xl font-semibold mt-6 mb-3">Functionality Cookies</h3>
@@ -46,7 +46,7 @@ export default function Cookies() {
 
           <h3 className="text-xl font-semibold mt-6 mb-3">Analytics Cookies</h3>
           <p className="mb-4">
-            We use analytics cookies to gather information about how visitors use our website. This helps us improve our website's structure and content. These cookies collect information in an anonymous form, including the number of visitors, where visitors came from, and which pages they visited.
+            We use analytics cookies to gather information about how visitors use our website. This helps us improve our website&apos;s structure and content. These cookies collect information in an anonymous form, including the number of visitors, where visitors came from, and which pages they visited.
           </p>
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">Cookie Duration</h2>
@@ -60,7 +60,7 @@ export default function Cookies() {
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">Third-Party Cookies</h2>
           <p className="mb-4">
-            Some cookies are placed by third-party services that appear on our pages. We use these services to enhance our website's functionality and analyze usage patterns. These third-party services include:
+            Some cookies are placed by third-party services that appear on our pages. We use these services to enhance our website&apos;s functionality and analyze usage patterns. These third-party services include:
           </p>
           <ul className="list-disc pl-6 mb-4">
             <li>Google Analytics for website traffic analysis</li>
