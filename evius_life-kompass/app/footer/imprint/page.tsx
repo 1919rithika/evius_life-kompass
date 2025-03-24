@@ -98,6 +98,11 @@ export default function Imprint() {
     <p className="mb-4">
       We reserve the right to make changes to this imprint to reflect updates in legal regulations or changes to our services. Please refer back to this page regularly to stay informed about the latest information.
     </p>
+
+    <h2 className="text-2xl font-semibold mt-8 mb-4">Responsible for content according to § 55 Abs. 2 RStV</h2>
+    <p className="mb-4">
+      We&apos;re committed to maintaining accurate and up-to-date information on this website.
+    </p>
   </div>
       </div>
       <Footer/>

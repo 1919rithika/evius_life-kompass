@@ -11,7 +11,7 @@ export default function Cookies() {
           <p>This is our cookie policy explaining how we use cookies.</p>
           <h2 className="text-2xl font-semibold mt-8 mb-4">What Are Cookies?</h2>
           <p className="mb-4">
-            Cookies are small text files that are placed on your device when you visit our website. They help us provide you with a better experience by remembering your preferences, analyzing how you use our site, and supporting our website's functionality.
+            Cookies are small text files that are placed on your device when you visit our website. They help us provide you with a better experience by remembering your preferences, analyzing how you use our site, and supporting our website&apos;s functionality.
           </p>
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">How We Use Cookies</h2>
@@ -36,17 +36,17 @@ export default function Cookies() {
 
           <h3 className="text-xl font-semibold mt-6 mb-3">Performance Cookies</h3>
           <p className="mb-4">
-            Performance cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This data helps us improve our website's performance and user experience.
+            Performance cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This data helps us improve our website&apos;s performance and user experience.
           </p>
 
           <h3 className="text-xl font-semibold mt-6 mb-3">Functionality Cookies</h3>
           <p className="mb-4">
-            These cookies allow the website to remember choices you make (such as your username, language, or region) and provide enhanced, more personal features. They may also be used to provide services you have requested.
+            These cookies allow the website to remember choices you make (such as your username, language, or region) and provide enhanced, more personal features. They may also be used to provide services you&apos;ve requested.
           </p>
 
           <h3 className="text-xl font-semibold mt-6 mb-3">Analytics Cookies</h3>
           <p className="mb-4">
-            We use analytics cookies to gather information about how visitors use our website. This helps us improve our website's structure and content. These cookies collect information in an anonymous form, including the number of visitors, where visitors came from, and which pages they visited.
+            We use analytics cookies to gather information about how visitors use our website. This helps us improve our website&apos;s structure and content. These cookies collect information in an anonymous form, including the number of visitors, where visitors came from, and which pages they visited.
           </p>
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">Cookie Duration</h2>
@@ -60,7 +60,7 @@ export default function Cookies() {
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">Third-Party Cookies</h2>
           <p className="mb-4">
-            Some cookies are placed by third-party services that appear on our pages. We use these services to enhance our website's functionality and analyze usage patterns. These third-party services include:
+            Some cookies are placed by third-party services that appear on our pages. We use these services to enhance our website&apos;s functionality and analyze usage patterns. These third-party services include:
           </p>
           <ul className="list-disc pl-6 mb-4">
             <li>Google Analytics for website traffic analysis</li>
@@ -95,30 +95,30 @@ export default function Cookies() {
           <h3 className="text-xl font-semibold mt-6 mb-3">Google Chrome</h3>
           <ol className="list-decimal pl-6 mb-4">
             <li>Click the menu icon (three dots) at the top right</li>
-            <li>Select "Settings"</li>
-            <li>Click "Privacy and security"</li>
-            <li>Choose "Cookies and other site data"</li>
+            <li>Select &quot;Settings&quot;</li>
+            <li>Click &quot;Privacy and security&quot;</li>
+            <li>Choose &quot;Cookies and other site data&quot;</li>
           </ol>
 
           <h3 className="text-xl font-semibold mt-6 mb-3">Mozilla Firefox</h3>
           <ol className="list-decimal pl-6 mb-4">
             <li>Click the menu icon (three lines) at the top right</li>
-            <li>Select "Options" (Windows) or "Preferences" (Mac)</li>
-            <li>Choose "Privacy & Security"</li>
-            <li>Navigate to the "Cookies and Site Data" section</li>
+            <li>Select &quot;Options&quot; (Windows) or &quot;Preferences&quot; (Mac)</li>
+            <li>Choose &quot;Privacy & Security&quot;</li>
+            <li>Navigate to the &quot;Cookies and Site Data&quot; section</li>
           </ol>
 
           <h3 className="text-xl font-semibold mt-6 mb-3">Safari</h3>
           <ol className="list-decimal pl-6 mb-4">
-            <li>Click "Safari" in the top menu</li>
-            <li>Choose "Preferences"</li>
-            <li>Select the "Privacy" tab</li>
+            <li>Click &quot;Safari&quot; in the top menu</li>
+            <li>Choose &quot;Preferences&quot;</li>
+            <li>Select the &quot;Privacy&quot; tab</li>
             <li>Manage your cookie settings</li>
           </ol>
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">Data Collection and Privacy</h2>
           <p className="mb-4">
-            The information we collect through cookies helps us understand our users better and improve our services. We handle all data in accordance with our Privacy Policy and applicable data protection laws.
+            The information we collect through cookies helps us understand our users better and improve our services. We handle all data in accordance with our &quot;Privacy Policy&quot; and applicable data protection laws.
           </p>
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">Updates to This Policy</h2>
@@ -131,9 +131,9 @@ export default function Cookies() {
             If you have any questions about our use of cookies or this Cookie Policy, please contact us at:
           </p>
           <ul className="list-disc pl-6 mb-4">
-            <li>Email: privacy@eviuslife.com</li>
-            <li>Phone: +1 (555) 123-4567</li>
-            <li>Address: 123 Privacy Street, Digital City, DC 12345</li>
+            <li>Email: &quot;privacy@eviuslife.com&quot;</li>
+            <li>Phone: &quot;+1 (555) 123-4567&quot;</li>
+            <li>Address: &quot;123 Privacy Street&quot;, &quot;Digital City&quot;, DC 12345</li>
           </ul>
 
           <p className="mb-4">
