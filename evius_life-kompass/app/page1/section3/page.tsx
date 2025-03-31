@@ -36,21 +36,21 @@ export default function Section3() {
           <div className="space-y-4">
             <Link
               href="/page1/section3/treatment-options"
-              className="block w-full p-6 text-left bg-gray-800/50 hover:bg-gray-700 rounded-lg border border-gray-700 transition-colors duration-300"
+              className="block w-full p-6 text-left bg-gray-800/50 hover:bg-gray-700 rounded-lg border border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               <h2 className="text-xl font-semibold">Welche Möglichkeiten der Behandlung gibt es?</h2>
             </Link>
 
             <Link
               href="/page1/section3/work-capability"
-              className="block w-full p-6 text-left bg-gray-800/50 hover:bg-gray-700 rounded-lg border border-gray-700 transition-colors duration-300"
+              className="block w-full p-6 text-left bg-gray-800/50 hover:bg-gray-700 rounded-lg border border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               <h2 className="text-xl font-semibold">Welche Möglichkeiten gibt es, wenn ich mich nicht arbeitsfähig fühle?</h2>
             </Link>
 
             <Link
               href="/page1/section3/recovery"
-              className="block w-full p-6 text-left bg-gray-800/50 hover:bg-gray-700 rounded-lg border border-gray-700 transition-colors duration-300"
+              className="block w-full p-6 text-left bg-gray-800/50 hover:bg-gray-700 rounded-lg border border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               <h2 className="text-xl font-semibold">Werden meine Beschwerden wieder besser?</h2>
             </Link>

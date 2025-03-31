@@ -36,21 +36,21 @@ export default function Section2() {
           <div className="space-y-4">
             <Link
               href="/page1/section2/how-it-works"
-              className="block w-full p-6 text-left bg-gray-800/50 hover:bg-gray-700 rounded-lg border border-gray-700 transition-colors duration-300"
+              className="block w-full p-6 text-left bg-gray-800/50 hover:bg-gray-700 rounded-lg border border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               <h2 className="text-xl font-semibold">Wie funktioniert das?</h2>
             </Link>
 
             <Link
               href="/page1/section2/unsure"
-              className="block w-full p-6 text-left bg-gray-800/50 hover:bg-gray-700 rounded-lg border border-gray-700 transition-colors duration-300"
+              className="block w-full p-6 text-left bg-gray-800/50 hover:bg-gray-700 rounded-lg border border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               <h2 className="text-xl font-semibold">Ich bin unsicher, ob ich mich wirklich an eine Ärzt*in oder Therapeut*in wenden soll</h2>
             </Link>
 
             <Link
               href="/page1/section2/no-insurance"
-              className="block w-full p-6 text-left bg-gray-800/50 hover:bg-gray-700 rounded-lg border border-gray-700 transition-colors duration-300"
+              className="block w-full p-6 text-left bg-gray-800/50 hover:bg-gray-700 rounded-lg border border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               <h2 className="text-xl font-semibold">Ich habe keine Krankenversicherung und kann einen Termin nicht bezahlen</h2>
             </Link>
