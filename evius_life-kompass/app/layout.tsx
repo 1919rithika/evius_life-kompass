@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "evius life/kompass",
   description: "A platform to help you navigate life's challenges",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
