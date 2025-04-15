@@ -9,11 +9,9 @@ export const metadata: Metadata = {
   description: "A platform to help you navigate life's challenges",
   icons: {
     icon: [
-      { url: './favicon.ico', sizes: 'any' },
-      { url: './icon.png', type: 'image/png', sizes: '32x32' }
+      { url: '/favicon.ico', sizes: 'any' },
     ],
-    shortcut: './favicon.ico',
-    apple: './apple-icon.png',
+    shortcut: '/favicon.ico',
   },
 };
 
@@ -24,10 +22,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="favicon.ico" />
-        <link rel="shortcut icon" href="favicon.ico" />
-      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
