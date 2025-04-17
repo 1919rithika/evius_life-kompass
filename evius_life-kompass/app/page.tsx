@@ -31,23 +31,30 @@ export default function Home() {
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8 flex-grow flex flex-col items-center justify-center">
-        <div className="w-full max-w-3xl flex flex-col items-center space-y-16">
+        <div className="w-full max-w-5xl flex flex-col justify-center items-center space-y-32">
           {options.map((option, index) => (
-            <Link
-              key={index}
-              href={option.link}
-              className="group relative"
-            >
-              <div className="w-32 h-32 bg-gray-800 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-150 group-hover:w-96 group-hover:h-96">
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h2 className="text-2xl font-bold text-gray-200 mb-4">{option.title}</h2>
-                  <p className="text-gray-300 text-center text-sm">{option.description}</p>
+            <div key={index} className="relative group">
+              <Link href={option.link} className="relative z-10">
+                <div className="w-24 h-24 bg-gray-800 rounded-full flex items-center justify-center transition-all duration-300 hover:ring-4 hover:ring-gray-700">
+                  <span className="text-3xl font-bold text-gray-200">
+                    {option.letter}
+                  </span>
                 </div>
-                <span className="text-4xl font-bold text-gray-200 group-hover:opacity-0 transition-opacity duration-300">
-                  {option.letter}
-                </span>
+              </Link>
+              
+              {/* Info Panel */}
+              <div 
+                className={`absolute opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none
+                  ${index === 0 ? 'right-full mr-8' : 'left-full ml-8'}
+                  top-1/2 -translate-y-1/2 w-80 bg-gray-800 rounded-lg p-6 shadow-xl`}
+              >
+                <h2 className="text-xl font-bold text-gray-200 mb-3">{option.title}</h2>
+                <p className="text-gray-300 text-sm leading-relaxed">{option.description}</p>
+                <div className={`absolute top-1/2 -translate-y-1/2 ${index === 0 ? 'right-0 translate-x-1/2' : 'left-0 -translate-x-1/2'}`}>
+                  <div className={`w-4 h-4 bg-gray-800 transform rotate-45`}></div>
+                </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
