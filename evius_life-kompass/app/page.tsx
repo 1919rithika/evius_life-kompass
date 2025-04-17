@@ -35,7 +35,7 @@ export default function Home() {
               <div className="relative w-full h-40 flex items-center justify-center">
                 {/* Removed the colored gradient overlay */}
               </div>
-              <h3 className="text-xl font-semibold mt-4 text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
+              <h3 className="text-xl font-semibold mt- text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
                 {card.title}
               </h3>
               <p className="text-gray-400 mt-2 group-hover:text-gray-300 transition-colors duration-300">{card.description}</p>
