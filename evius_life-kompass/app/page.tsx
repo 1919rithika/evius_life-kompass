@@ -1,16 +1,19 @@
+"use client";
+
 import Footer from "@/components/ui/footer";
 import Link from "next/link";
 
 export default function Home() {
-  // Sample data for the cards
-  const cards = [
+  const options = [
     {
+      letter: "M",
       title: "Mich selbst",
       description:
         "Ich fühle mich belastet und möchte mich über Möglichkeiten zur Unterstützung informieren.",
       link: "/page1",
     },
     {
+      letter: "P",
       title: "Person im Umfeld",
       description:
         "Jemandem in meinem Umfeld geht es nicht gut und ich möchte mich über Möglichkeiten zur Unterstützung informieren.",
@@ -19,32 +22,64 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Content Wrapper */}
-      <div className="container mx-auto px-4 py-8 mt-10 max-w-6xl flex-grow">
-        <h1 className="text-2xl font-bold text-center mb-10 text-gray-300">Um wen geht es?</h1>
+    <div className="min-h-screen flex flex-col relative">
+      {/* SOS Button */}
+      <Link href="/emergency">
+        <div className="absolute top-4 left-4 bg-red-600 hover:bg-red-700 text-white font-bold w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-sm">
+          SOS
+        </div>
+      </Link>
 
-        {/* Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-items-center">
-          {cards.map((card, index) => (
-            <Link
+      {/* CENTERED MAIN CONTENT */}
+      <div className="flex-grow flex items-center justify-center px-4 py-8">
+        <div className="flex flex-col items-center justify-center space-y-32">
+          {options.map((option, index) => (
+            <div
               key={index}
-              href={card.link}
-              className="group block bg-gradient-to-br from-gray-900 to-[--background] border border-gray-700 p-8 rounded-3xl shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 w-full max-w-md transform hover:-translate-y-1"
+              className="relative group flex flex-col items-center"
             >
-              <div className="relative w-full h-40 flex items-center justify-center">
-                {/* Removed the colored gradient overlay */}
+              {/* Circle */}
+              <Link href={option.link}>
+                <div className="relative z-10 w-24 h-24 bg-gray-800 rounded-full flex items-center justify-center transition-all duration-300 hover:ring-4 hover:ring-gray-700">
+                
+                </div>
+              </Link>
+
+              {/* Tooltip (absolute) */}
+              <div
+                className={`absolute opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none
+                  ${index === 0 ? "right-full mr-8" : "left-full ml-8"}
+                  top-1/2 -translate-y-1/2 w-80 bg-gray-800 rounded-lg p-6 shadow-xl`}
+              >
+                <h2
+                  suppressHydrationWarning
+                  className="text-xl font-bold text-gray-200 mb-3"
+                >
+                  {option.title}
+                </h2>
+                <p
+                  suppressHydrationWarning
+                  className="text-gray-300 text-sm leading-relaxed"
+                >
+                  {option.description}
+                </p>
+                <div
+                  className={`absolute top-1/2 -translate-y-1/2 ${
+                    index === 0
+                      ? "right-0 translate-x-1/2"
+                      : "left-0 -translate-x-1/2"
+                  }`}
+                >
+                  <div className="w-4 h-4 bg-gray-800 transform rotate-45" />
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mt- text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
-                {card.title}
-              </h3>
-              <p className="text-gray-400 mt-2 group-hover:text-gray-300 transition-colors duration-300">{card.description}</p>
-            </Link>
+
+            </div>
           ))}
         </div>
       </div>
 
-      {/* Footer at the bottom */}
+      {/* Footer */}
       <Footer />
     </div>
   );
