@@ -4,7 +4,7 @@ export default function Imprint() {
   return (
     <>
       <Breadcrumb />
-      <div className="container mx-auto px-4 py-8 mt-10 max-w-6xl">
+      <div className="container mx-auto px-4 py-8 mt-2 max-w-6xl">
   <h1 className="text-3xl font-bold mb-20 text-center">Imprint</h1>
   <div className="prose max-w-none">
     <h2 className="text-2xl font-semibold mt-8 mb-4">Legal Information</h2>

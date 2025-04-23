@@ -22,17 +22,17 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col relative">
+    <div className="min-h-screen flex flex-col relative max-w-full overflow-x-hidden">
       {/* SOS Button */}
       <Link href="/emergency">
-        <div className="absolute top-4 left-4 bg-red-600 hover:bg-red-700 text-white font-bold w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-sm">
+        <div className="absolute top-4 left-4 bg-red-600 hover:bg-red-700 text-white font-bold w-10 h-10 rounded-full shadow-lg flex items-center justify-center text-sm">
           SOS
         </div>
       </Link>
 
       {/* CENTERED MAIN CONTENT */}
-      <div className="flex-grow flex items-center justify-center px-4 py-8">
-        <div className="flex flex-col items-center justify-center space-y-32">
+      <div className="flex-grow flex items-center justify-center px-4 py-12 sm:py-20">
+        <div className="flex flex-col items-center justify-center space-y-8 sm:space-y-15">
           {options.map((option, index) => (
             <div
               key={index}
@@ -40,9 +40,7 @@ export default function Home() {
             >
               {/* Circle */}
               <Link href={option.link}>
-                <div className="relative z-10 w-24 h-24 bg-gray-800 rounded-full flex items-center justify-center transition-all duration-300 hover:ring-4 hover:ring-gray-700">
-                
-                </div>
+                <div className="relative z-10 w-24 h-24 bg-gray-800 rounded-full flex items-center justify-center transition-all duration-300 hover:ring-4 hover:ring-gray-700"></div>
               </Link>
 
               {/* Tooltip (absolute) */}
@@ -73,13 +71,11 @@ export default function Home() {
                   <div className="w-4 h-4 bg-gray-800 transform rotate-45" />
                 </div>
               </div>
-
             </div>
           ))}
         </div>
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

@@ -3,7 +3,7 @@
 import Footer from "@/components/ui/footer";
 import Link from "next/link";
 import { useState, useMemo, useCallback } from "react";
-import React from 'react';
+import React from "react";
 
 interface Question {
   question: string;
@@ -19,8 +19,8 @@ const generalQuestions: Question[] = [
       "Seit mehreren Wochen",
       "Seit einigen Monaten",
       "Seit über einem Jahr",
-      "Kommt und geht"
-    ]
+      "Kommt und geht",
+    ],
   },
   {
     question: "Hast du bereits professionelle Hilfe in Anspruch genommen?",
@@ -29,33 +29,29 @@ const generalQuestions: Question[] = [
       "Ja, gelegentlich",
       "Nein, aber ich denke darüber nach",
       "Nein, möchte ich nicht",
-      "Unsicher"
-    ]
+      "Unsicher",
+    ],
   },
   {
-    question: "Wie stark fühlst du dich durch deine aktuelle Situation belastet?",
-    options: [
-      "Sehr stark",
-      "Stark",
-      "Mittelmäßig",
-      "Leicht",
-      "Kaum spürbar"
-    ]
-  }
+    question:
+      "Wie stark fühlst du dich durch deine aktuelle Situation belastet?",
+    options: ["Sehr stark", "Stark", "Mittelmäßig", "Leicht", "Kaum spürbar"],
+  },
 ];
 
 // Update questionSets with more specific questions
 const questionSets: { [key: string]: Question[] } = {
-  "Überwältigt": [
+  Überwältigt: [
     {
-      question: "Wie oft fühlst du dich von deinen täglichen Aufgaben überfordert?",
+      question:
+        "Wie oft fühlst du dich von deinen täglichen Aufgaben überfordert?",
       options: [
         "Mehrmals täglich",
         "Täglich",
         "Mehrmals pro Woche",
         "Gelegentlich",
-        "Selten"
-      ]
+        "Selten",
+      ],
     },
     {
       question: "Was löst bei dir am häufigsten Überforderung aus?",
@@ -64,8 +60,8 @@ const questionSets: { [key: string]: Question[] } = {
         "Familie/Beziehungen",
         "Finanzielle Sorgen",
         "Gesundheitliche Probleme",
-        "Soziale Verpflichtungen"
-      ]
+        "Soziale Verpflichtungen",
+      ],
     },
     {
       question: "Welche Unterstützung würde dir am meisten helfen?",
@@ -74,11 +70,11 @@ const questionSets: { [key: string]: Question[] } = {
         "Gespräche mit Freunden/Familie",
         "Bessere Work-Life-Balance",
         "Stressmanagement-Techniken",
-        "Praktische Alltagshilfe"
-      ]
-    }
+        "Praktische Alltagshilfe",
+      ],
+    },
   ],
-  "Ängstlich": [
+  Ängstlich: [
     {
       question: "In welchen Situationen treten deine Ängste am stärksten auf?",
       options: [
@@ -86,21 +82,15 @@ const questionSets: { [key: string]: Question[] } = {
         "Alleine zu Hause",
         "Bei der Arbeit",
         "In der Öffentlichkeit",
-        "Bei Konflikten"
-      ]
+        "Bei Konflikten",
+      ],
     },
     {
       question: "Wie äußern sich deine Ängste körperlich?",
-      options: [
-        "Herzrasen",
-        "Schwitzen",
-        "Zittern",
-        "Atemnot",
-        "Schwindel"
-      ]
-    }
+      options: ["Herzrasen", "Schwitzen", "Zittern", "Atemnot", "Schwindel"],
+    },
   ],
-  "Verloren": [
+  Verloren: [
     {
       question: "Wodurch fühlst du dich orientierungslos?",
       options: [
@@ -108,20 +98,15 @@ const questionSets: { [key: string]: Question[] } = {
         "Berufliche Unsicherheit",
         "Beziehungsprobleme",
         "Identitätsfragen",
-        "Zukunftsängste"
-      ]
-    }
+        "Zukunftsängste",
+      ],
+    },
   ],
-  "Depressiv": [
+  Depressiv: [
     {
-      question: "Wie stark beeinträchtigen deine depressiven Gefühle deinen Alltag?",
-      options: [
-        "Sehr stark",
-        "Stark",
-        "Mittelmäßig",
-        "Leicht",
-        "Kaum spürbar"
-      ]
+      question:
+        "Wie stark beeinträchtigen deine depressiven Gefühle deinen Alltag?",
+      options: ["Sehr stark", "Stark", "Mittelmäßig", "Leicht", "Kaum spürbar"],
     },
     {
       question: "Welche Aktivitäten fallen dir besonders schwer?",
@@ -130,101 +115,118 @@ const questionSets: { [key: string]: Question[] } = {
         "Soziale Kontakte pflegen",
         "Arbeit/Studium",
         "Haushalt führen",
-        "Hobbys nachgehen"
-      ]
-    }
+        "Hobbys nachgehen",
+      ],
+    },
   ],
-  "Gestresst": [
+  Gestresst: [
     {
-      question: "Welche Stressbewältigungsstrategien hast du bereits ausprobiert?",
+      question:
+        "Welche Stressbewältigungsstrategien hast du bereits ausprobiert?",
       options: [
         "Sport/Bewegung",
         "Meditation/Achtsamkeit",
         "Gespräche mit Freunden",
         "Professionelle Hilfe",
-        "Keine"
-      ]
-    }
-  ]
+        "Keine",
+      ],
+    },
+  ],
 };
 
-const OptionButton = React.memo(({ 
-  option, 
-  isSelected, 
-  onClick 
-}: { 
-  option: string; 
-  isSelected: boolean; 
-  onClick: () => void; 
-}) => (
-  <button
-    type="button"
-    onClick={onClick}
-    translate="no"
-    className={`p-4 border-2 rounded-lg transition-all duration-200 text-left
-      ${isSelected 
-        ? 'border-blue-500 bg-blue-500 text-white' 
-        : 'border-gray-300 hover:border-blue-500 hover:bg-blue-500 hover:text-white'}`}
-  >
-    <div className="flex items-center" translate="yes">
-      <div className={`w-5 h-5 border-2 rounded mr-3 flex items-center justify-center
-        ${isSelected
-          ? 'border-white bg-white'
-          : 'border-gray-400 bg-transparent'}`}
-      >
-        {isSelected && (
-          <svg className="w-3 h-3 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
-          </svg>
-        )}
+const OptionButton = React.memo(
+  ({
+    option,
+    isSelected,
+    onClick,
+  }: {
+    option: string;
+    isSelected: boolean;
+    onClick: () => void;
+  }) => (
+    <button
+      type="button"
+      onClick={onClick}
+      translate="no"
+      className={`p-4 border-1 rounded-lg transition-all duration-100 text-left
+      ${
+        isSelected
+          ? "border-blue-500 bg-blue-500 text-white"
+          : "border-gray-600 hover:border-blue-500 hover:bg-blue-500 hover:text-white"
+      }`}
+    >
+      <div className="flex items-center" translate="yes">
+        <div
+          className={`w-5 h-5 border-2 rounded mr-3 flex items-center justify-center
+        ${
+          isSelected
+            ? "border-white bg-white"
+            : "border-gray-600 bg-transparent"
+        }`}
+        >
+          {isSelected && (
+            <svg
+              className="w-3 h-3 text-blue-500"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+            </svg>
+          )}
+        </div>
+        <span>{option}</span>
       </div>
-      <span>{option}</span>
-    </div>
-  </button>
-));
+    </button>
+  )
+);
 
-OptionButton.displayName = 'OptionButton';
+OptionButton.displayName = "OptionButton";
 
-const QuestionContent = React.memo(({ 
-  question, 
-  options, 
-  selectedOptions, 
-  onOptionClick 
-}: { 
-  question: string; 
-  options: string[]; 
-  selectedOptions: Set<string>; 
-  onOptionClick: (option: string) => void; 
-}) => (
-  <div className="flex-grow flex flex-col items-center justify-center px-4 mt-8">
-    <div className="w-full max-w-2xl">
-      <h1 className="text-2xl sm:text-3xl font-bold mb-8 text-center" translate="yes">
-        {question}
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {options.map((option, index) => (
-          <OptionButton
-            key={`${option}-${index}`}
-            option={option}
-            isSelected={selectedOptions.has(option)}
-            onClick={() => onOptionClick(option)}
-          />
-        ))}
+const QuestionContent = React.memo(
+  ({
+    question,
+    options,
+    selectedOptions,
+    onOptionClick,
+  }: {
+    question: string;
+    options: string[];
+    selectedOptions: Set<string>;
+    onOptionClick: (option: string) => void;
+  }) => (
+    <div className="flex-grow flex flex-col items-center justify-center px-2 mt-1 text-gray-100">
+      <div className="w-full max-w-3xl">
+        <h1
+          className="text-2xl sm:text-3xl font-bold mb-4 text-center"
+          translate="yes"
+        >
+          {question}
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {options.map((option, index) => (
+            <OptionButton
+              key={`${option}-${index}`}
+              option={option}
+              isSelected={selectedOptions.has(option)}
+              onClick={() => onOptionClick(option)}
+            />
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-));
+  )
+);
 
-QuestionContent.displayName = 'QuestionContent';
+QuestionContent.displayName = "QuestionContent";
 
 export default function Page1(): React.ReactElement {
   const [state, setState] = useState({
     currentQuestion: 0,
     selectedOptions: new Set<string>(),
     dynamicQuestions: [] as Question[],
-    allAnswers: new Map<number, Set<string>>()
+    allAnswers: new Map<number, Set<string>>(),
   });
-  
+
   const initialQuestion: Question = {
     question: "Wie fühlst du dich?",
     options: [
@@ -235,47 +237,50 @@ export default function Page1(): React.ReactElement {
       "Verloren",
       "Verwirrt",
       "Angst",
-      "Andere​"
-    ]
+      "Andere​",
+    ],
   };
 
   // Generate dynamic questions based on selected feelings
-  const generateDynamicQuestions = useCallback((selectedFeelings: Set<string>): Question[] => {
-    const allRelevantQuestions: Question[] = [];
-    const usedQuestions = new Set<string>();
-    
-    // Add specific questions for each selected feeling
-    selectedFeelings.forEach(feeling => {
-      if (questionSets[feeling]) {
-        questionSets[feeling].forEach(question => {
+  const generateDynamicQuestions = useCallback(
+    (selectedFeelings: Set<string>): Question[] => {
+      const allRelevantQuestions: Question[] = [];
+      const usedQuestions = new Set<string>();
+
+      // Add specific questions for each selected feeling
+      selectedFeelings.forEach((feeling) => {
+        if (questionSets[feeling]) {
+          questionSets[feeling].forEach((question) => {
+            if (!usedQuestions.has(question.question)) {
+              allRelevantQuestions.push(question);
+              usedQuestions.add(question.question);
+            }
+          });
+        }
+      });
+
+      // Add general questions if we need more
+      if (allRelevantQuestions.length < 4) {
+        generalQuestions.forEach((question) => {
           if (!usedQuestions.has(question.question)) {
             allRelevantQuestions.push(question);
             usedQuestions.add(question.question);
           }
         });
       }
-    });
 
-    // Add general questions if we need more
-    if (allRelevantQuestions.length < 4) {
-      generalQuestions.forEach(question => {
-        if (!usedQuestions.has(question.question)) {
-          allRelevantQuestions.push(question);
-          usedQuestions.add(question.question);
-        }
-      });
-    }
+      // Shuffle the questions to randomize the order
+      const shuffledQuestions = [...allRelevantQuestions]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 4); // Take only 4 questions (plus the initial question makes 5)
 
-    // Shuffle the questions to randomize the order
-    const shuffledQuestions = [...allRelevantQuestions]
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 4); // Take only 4 questions (plus the initial question makes 5)
-
-    return shuffledQuestions;
-  }, []);
+      return shuffledQuestions;
+    },
+    []
+  );
 
   const handleOptionClick = useCallback((option: string): void => {
-    setState(prevState => {
+    setState((prevState) => {
       const newSelected = new Set(prevState.selectedOptions);
       if (newSelected.has(option)) {
         newSelected.delete(option);
@@ -284,33 +289,38 @@ export default function Page1(): React.ReactElement {
       }
       return {
         ...prevState,
-        selectedOptions: newSelected
+        selectedOptions: newSelected,
       };
     });
   }, []);
 
   const handleNext = useCallback((): void => {
     if (state.selectedOptions.size > 0) {
-      setState(prevState => {
+      setState((prevState) => {
         const newState = { ...prevState };
         const newAnswers = new Map(prevState.allAnswers);
-        newAnswers.set(prevState.currentQuestion, new Set(prevState.selectedOptions));
+        newAnswers.set(
+          prevState.currentQuestion,
+          new Set(prevState.selectedOptions)
+        );
 
         if (prevState.currentQuestion === 0) {
-          const newQuestions = generateDynamicQuestions(prevState.selectedOptions);
+          const newQuestions = generateDynamicQuestions(
+            prevState.selectedOptions
+          );
           return {
             ...prevState,
             currentQuestion: 1,
             selectedOptions: new Set(),
             dynamicQuestions: newQuestions,
-            allAnswers: newAnswers
+            allAnswers: newAnswers,
           };
         } else if (prevState.currentQuestion < 5) {
           return {
             ...prevState,
             currentQuestion: prevState.currentQuestion + 1,
             selectedOptions: new Set(),
-            allAnswers: newAnswers
+            allAnswers: newAnswers,
           };
         }
         return prevState;
@@ -320,20 +330,24 @@ export default function Page1(): React.ReactElement {
 
   const handlePrevious = useCallback((): void => {
     if (state.currentQuestion > 0) {
-      setState(prevState => {
+      setState((prevState) => {
         // Save current answers before going back
         const newAnswers = new Map(prevState.allAnswers);
-        newAnswers.set(prevState.currentQuestion, new Set(prevState.selectedOptions));
-        
+        newAnswers.set(
+          prevState.currentQuestion,
+          new Set(prevState.selectedOptions)
+        );
+
         const previousQuestion = prevState.currentQuestion - 1;
         // Restore previous answers
-        const previousAnswers = prevState.allAnswers.get(previousQuestion) || new Set();
-        
+        const previousAnswers =
+          prevState.allAnswers.get(previousQuestion) || new Set();
+
         return {
           ...prevState,
           currentQuestion: previousQuestion,
           selectedOptions: new Set(previousAnswers),
-          allAnswers: newAnswers
+          allAnswers: newAnswers,
         };
       });
     }
@@ -344,27 +358,27 @@ export default function Page1(): React.ReactElement {
     // Each question represents 20% of progress (100% / 5 questions)
     const progressPerQuestion = 100 / 5;
     // Calculate current progress
-    return Math.min(((state.currentQuestion) * progressPerQuestion), 100);
+    return Math.min(state.currentQuestion * progressPerQuestion, 100);
   }, [state.currentQuestion]);
 
   // Progress bar segments
-  const segments = useMemo(() => (
-    <div className="absolute top-0 left-0 right-0 h-full flex">
-      {Array.from({ length: 4 }, (_, i) => (
-        <div 
-          key={i} 
-          className="flex-1 flex items-center justify-center"
-        >
-          <div 
-            className="w-0.5 h-full bg-white"
-            style={{ 
-              transform: 'translateX(-50%)'
-            }}
-          />
-        </div>
-      ))}
-    </div>
-  ), []);
+  const segments = useMemo(
+    () => (
+      <div className="absolute top-0 left-0 right-0 h-full flex">
+        {Array.from({ length: 4 }, (_, i) => (
+          <div key={i} className="flex-1 flex items-center justify-center">
+            <div
+              className="w-0.5 h-full bg-white" 
+              style={{
+                transform: "translateX(-50%)",
+              }}
+            />
+          </div>
+        ))}
+      </div>
+    ),
+    []
+  );
 
   const currentQuestionData = useMemo(() => {
     if (state.currentQuestion === 0) {
@@ -390,15 +404,15 @@ export default function Page1(): React.ReactElement {
           <div className="relative">
             <div className="flex items-center justify-center">
               {/* Starting Circle */}
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-500 flex items-center justify-center text-white text-base sm:text-lg font-semibold z-10">
+              <div className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-green-500 flex items-center justify-center text-white text-base sm:text-lg font-semibold z-10">
                 1
               </div>
               {/* Progress Bar Line */}
               <div className="w-64 sm:w-96 mx-4 relative">
-                <div className="h-5 sm:h-6 bg-gray-200 rounded-full overflow-hidden">
+                <div className="h-5 sm:h-4 bg-gray-200 rounded-full overflow-hidden">
                   {/* Progress Fill */}
-                  <div 
-                    className="absolute top-0 left-0 h-full bg-blue-500 transition-all duration-300 ease-in-out"
+                  <div
+                    className="absolute top-0 left-0 h-full bg-green-500 transition-all duration-300 ease-in-out"
                     style={{ width: `${progress}%` }}
                   />
                   {/* Segments Container */}
@@ -406,7 +420,7 @@ export default function Page1(): React.ReactElement {
                 </div>
               </div>
               {/* Ending Circle */}
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-4 sm:border-4 border-gray-300 flex items-center justify-center text-gray-500 text-base sm:text-lg font-semibold z-10">
+              <div className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-green-500 flex items-center justify-center text-white text-base sm:text-lg font-semibold z-10">
                 5
               </div>
             </div>
@@ -422,38 +436,41 @@ export default function Page1(): React.ReactElement {
         onOptionClick={handleOptionClick}
       />
 
-      {/* Navigation */}
+      {/* Navigation Buttons */}
       <div className="w-full max-w-3xl mx-auto p-4 flex justify-between items-center">
         <div className="flex items-center gap-4">
           {state.currentQuestion > 0 && (
             <button
               onClick={handlePrevious}
               type="button"
-              className="inline-flex items-center justify-center px-6 py-2 border-2 rounded-lg transition-all duration-200 border-gray-300 hover:border-blue-500 hover:bg-blue-500 hover:text-white"
+              className="inline-flex items-center justify-center px-4 py-2 border-1 rounded-lg transition-all duration-200 border-gray-600 hover:border-blue-500 hover:bg-blue-500 hover:text-white"
             >
               <span className="mr-2">←</span>
               <span translate="yes">Previous</span>
             </button>
           )}
           <div className="text-sm text-gray-500" translate="yes">
-            {state.selectedOptions.size} option{state.selectedOptions.size !== 1 ? 's' : ''} selected
+            {state.selectedOptions.size} option
+            {state.selectedOptions.size !== 1 ? "s" : ""} selected
           </div>
         </div>
         <button
           onClick={handleNext}
           type="button"
-          className={`inline-flex items-center justify-center px-6 py-2 border-2 rounded-lg transition-all duration-200
-            ${state.selectedOptions.size > 0 
-              ? 'border-blue-500 bg-blue-500 text-white hover:bg-blue-600' 
-              : 'border-gray-300 text-gray-400 cursor-not-allowed'}`}
+          className={`inline-flex items-center justify-center px-6 py-2 border-1 rounded-lg transition-all duration-200
+            ${
+              state.selectedOptions.size > 0
+                ? "border-blue-500 bg-blue-500 text-white hover:bg-blue-600"
+                : "border-gray-600 text-gray-100 cursor-not-allowed "
+            }`}
           disabled={state.selectedOptions.size === 0}
         >
-          <span translate="yes" className="mr-2">Next</span>
+          <span translate="yes" className="mr-2">
+            Next
+          </span>
           <span>→</span>
         </button>
       </div>
-
-      {/* Footer */}
       <Footer />
     </div>
   );

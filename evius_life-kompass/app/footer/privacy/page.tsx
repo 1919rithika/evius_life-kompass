@@ -4,7 +4,7 @@ export default function Privacy() {
   return (
     <>
       <Breadcrumb />
-      <div className="container mx-auto px-4 py-8 mt-10 max-w-6xl">
+      <div className="container mx-auto px-4 py-8 mt-2 max-w-6xl">
   <h1 className="text-3xl font-bold mb-20 text-center">Privacy Policy</h1>
   <div className="prose max-w-none">
     <p>
