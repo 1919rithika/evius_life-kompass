@@ -10,130 +10,159 @@ interface Question {
   options: string[];
 }
 
-// Add general follow-up questions
+// Update the generalQuestions array with more options
 const generalQuestions: Question[] = [
   {
-    question: "Wie lange bestehen diese Gefühle schon?",
+    question: "Wie häufig haben Sie Kontakt zu der Person?",
     options: [
-      "Seit einigen Tagen",
-      "Seit mehreren Wochen",
-      "Seit einigen Monaten",
-      "Seit über einem Jahr",
-      "Kommt und geht",
+      "Täglich",
+      "Mehrmals pro Woche",
+      "Wöchentlich",
+      "Monatlich",
+      "Seltener",
     ],
   },
   {
-    question: "Hast du bereits professionelle Hilfe in Anspruch genommen?",
+    question: "Haben Sie mit anderen über Ihre Beobachtungen gesprochen?",
     options: [
-      "Ja, regelmäßig",
-      "Ja, gelegentlich",
-      "Nein, aber ich denke darüber nach",
+      "Ja, mit Familie/Freunden",
+      "Ja, mit Fachpersonen",
+      "Nein, ich bin unsicher",
       "Nein, möchte ich nicht",
-      "Unsicher",
+      "Darüber nachgedacht",
     ],
   },
   {
-    question:
-      "Wie stark fühlst du dich durch deine aktuelle Situation belastet?",
+    question: "Wie reagiert die Person auf Hilfsangebote?",
+    options: [
+      "Offen und dankbar",
+      "Zurückhaltend",
+      "Ablehnend",
+      "Unterschiedlich",
+      "Wurde noch nicht angesprochen",
+    ],
+  },
+  {
+    question: "Wie belastend ist die Situation für Sie?",
     options: ["Sehr stark", "Stark", "Mittelmäßig", "Leicht", "Kaum spürbar"],
   },
 ];
 
-// Update questionSets with more specific questions
+// Expand questionSets with more detailed questions
 const questionSets: { [key: string]: Question[] } = {
-  Überwältigt: [
+  Verhaltensänderungen: [
     {
-      question:
-        "Wie oft fühlst du dich von deinen täglichen Aufgaben überfordert?",
+      question: "Welche Veränderungen haben Sie bemerkt?",
       options: [
-        "Mehrmals täglich",
-        "Täglich",
-        "Mehrmals pro Woche",
-        "Gelegentlich",
-        "Selten",
+        "Sozialer Rückzug",
+        "Stimmungsschwankungen",
+        "Veränderte Schlafgewohnheiten",
+        "Appetitveränderungen",
+        "Interessenverlust",
       ],
     },
     {
-      question: "Was löst bei dir am häufigsten Überforderung aus?",
+      question: "Seit wann beobachten Sie diese Veränderungen?",
       options: [
-        "Arbeit/Studium",
-        "Familie/Beziehungen",
-        "Finanzielle Sorgen",
-        "Gesundheitliche Probleme",
-        "Soziale Verpflichtungen",
-      ],
-    },
-    {
-      question: "Welche Unterstützung würde dir am meisten helfen?",
-      options: [
-        "Professionelle Beratung",
-        "Gespräche mit Freunden/Familie",
-        "Bessere Work-Life-Balance",
-        "Stressmanagement-Techniken",
-        "Praktische Alltagshilfe",
+        "Seit kurzem",
+        "Seit einigen Wochen",
+        "Seit mehreren Monaten",
+        "Schleichende Entwicklung",
+        "Plötzliche Veränderung",
       ],
     },
   ],
-  Ängstlich: [
+  Suchtverhalten: [
     {
-      question: "In welchen Situationen treten deine Ängste am stärksten auf?",
+      question: "Wie äußert sich das Suchtverhalten?",
       options: [
+        "Regelmäßiger Konsum",
+        "Kontrollverlust",
+        "Vernachlässigung von Pflichten",
+        "Heimlicher Konsum",
+        "Finanzielle Probleme",
+      ],
+    },
+    {
+      question: "Gibt es Auslöser für das Verhalten?",
+      options: [
+        "Stress/Überforderung",
         "Soziale Situationen",
-        "Alleine zu Hause",
-        "Bei der Arbeit",
-        "In der Öffentlichkeit",
-        "Bei Konflikten",
-      ],
-    },
-    {
-      question: "Wie äußern sich deine Ängste körperlich?",
-      options: ["Herzrasen", "Schwitzen", "Zittern", "Atemnot", "Schwindel"],
-    },
-  ],
-  Verloren: [
-    {
-      question: "Wodurch fühlst du dich orientierungslos?",
-      options: [
-        "Fehlende Lebensziele",
-        "Berufliche Unsicherheit",
-        "Beziehungsprobleme",
-        "Identitätsfragen",
-        "Zukunftsängste",
+        "Einsamkeit",
+        "Berufliche Probleme",
+        "Unbekannt",
       ],
     },
   ],
   Depressiv: [
     {
-      question:
-        "Wie stark beeinträchtigen deine depressiven Gefühle deinen Alltag?",
-      options: ["Sehr stark", "Stark", "Mittelmäßig", "Leicht", "Kaum spürbar"],
+      question: "Welche Symptome beobachten Sie hauptsächlich?",
+      options: [
+        "Antriebslosigkeit",
+        "Schlafstörungen",
+        "Rückzug von Freunden",
+        "Negative Selbstgespräche",
+        "Erschöpfung",
+      ],
     },
     {
-      question: "Welche Aktivitäten fallen dir besonders schwer?",
+      question: "Gibt es Situationen, die die Stimmung verbessern?",
       options: [
-        "Aufstehen/Morgendliche Routine",
-        "Soziale Kontakte pflegen",
-        "Arbeit/Studium",
-        "Haushalt führen",
-        "Hobbys nachgehen",
+        "Soziale Kontakte",
+        "Körperliche Aktivität",
+        "Hobbys/Interessen",
+        "Keine erkennbar",
+        "Situationsabhängig",
       ],
     },
   ],
-  Gestresst: [
+  Aggressivität: [
     {
-      question:
-        "Welche Stressbewältigungsstrategien hast du bereits ausprobiert?",
+      question: "In welchen Situationen tritt aggressives Verhalten auf?",
       options: [
-        "Sport/Bewegung",
-        "Meditation/Achtsamkeit",
-        "Gespräche mit Freunden",
-        "Professionelle Hilfe",
-        "Keine",
+        "Bei Stress/Überforderung",
+        "In Konfliktsituationen",
+        "Bei Kritik",
+        "Ohne erkennbaren Grund",
+        "Nach Substanzkonsum",
+      ],
+    },
+    {
+      question: "Wie äußert sich die Aggressivität?",
+      options: [
+        "Verbale Ausbrüche",
+        "Körperliche Aggressivität",
+        "Passive Aggressivität",
+        "Selbstverletzendes Verhalten",
+        "Sachbeschädigung",
+      ],
+    },
+  ],
+  Angstzustände: [
+    {
+      question: "Welche Angstsymptome beobachten Sie?",
+      options: [
+        "Panikattacken",
+        "Vermeidungsverhalten",
+        "Körperliche Symptome",
+        "Sorgen/Grübeln",
+        "Schlafstörungen",
+      ],
+    },
+    {
+      question: "Was scheint die Ängste zu triggern?",
+      options: [
+        "Soziale Situationen",
+        "Bestimmte Orte/Aktivitäten",
+        "Leistungsdruck",
+        "Ungewissheit",
+        "Keine klaren Trigger",
       ],
     },
   ],
 };
 
+// Reuse the same OptionButton component
 const OptionButton = React.memo(
   ({
     option,
@@ -182,6 +211,7 @@ const OptionButton = React.memo(
 
 OptionButton.displayName = "OptionButton";
 
+// Reuse the same QuestionContent component
 const QuestionContent = React.memo(
   ({
     question,
@@ -196,7 +226,7 @@ const QuestionContent = React.memo(
   }) => (
     <div className="flex-grow flex flex-col items-center justify-center px-2 mt-1 text-gray-100">
       <div className="w-full max-w-3xl">
-        <h1
+        <h1 
           className="text-2xl sm:text-3xl font-bold mb-4 text-center"
           translate="yes"
         >
@@ -219,7 +249,7 @@ const QuestionContent = React.memo(
 
 QuestionContent.displayName = "QuestionContent";
 
-export default function Page1(): React.ReactElement {
+export default function Page2(): React.ReactElement {
   const [state, setState] = useState({
     currentQuestion: 0,
     selectedOptions: new Set<string>(),
@@ -227,45 +257,44 @@ export default function Page1(): React.ReactElement {
     allAnswers: new Map<number, Set<string>>(),
   });
 
+  // Update the initialQuestion with more specific options
   const initialQuestion: Question = {
-    question: "Wie fühlst du dich?",
+    question: "Welche Verhaltensweisen bereiten Ihnen Sorgen?",
     options: [
-      "Überwältigt",
-      "Ängstlich",
+      "Verhaltensänderungen",
+      "Suchtverhalten",
       "Depressiv",
-      "Gestresst",
-      "Verloren",
-      "Verwirrt",
-      "Angst",
+      "Aggressivität",
+      "Angstzustände",
+      "Essstörungen",
+      "Selbstverletzendes Verhalten",
       "Andere​",
     ],
   };
 
   // Add a final question
   const finalQuestion: Question = {
-    question: "Welche Art von Unterstützung wünschen Sie sich?",
+    question: "Wie möchten Sie der Person helfen?",
     options: [
-      "Therapeutische Begleitung",
-      "Ärztliche Beratung",
-      "Selbsthilfegruppe",
-      "Online-Beratung",
-      "Krisenintervention",
-      "Familienberatung",
-      "Coaching/Mentoring",
-      "Erst mehr Informationen",
+      "Hilfe vermitteln",
+      "Gespräch führen",
+      "Aktivitäten planen",
+      "Vertrauen aufbauen",
+      "Krisenhotline",
+      "Arzt kontaktieren",
+      "Beobachten",
     ],
   };
 
-  // Generate dynamic questions based on selected feelings
+  // Rest of the logic remains the same as page1.tsx
   const generateDynamicQuestions = useCallback(
-    (selectedFeelings: Set<string>): Question[] => {
+    (selectedSigns: Set<string>): Question[] => {
       const allRelevantQuestions: Question[] = [];
       const usedQuestions = new Set<string>();
 
-      // Add specific questions for each selected feeling
-      selectedFeelings.forEach((feeling) => {
-        if (questionSets[feeling]) {
-          questionSets[feeling].forEach((question) => {
+      selectedSigns.forEach((sign) => {
+        if (questionSets[sign]) {
+          questionSets[sign].forEach((question) => {
             if (!usedQuestions.has(question.question)) {
               allRelevantQuestions.push(question);
               usedQuestions.add(question.question);
@@ -274,7 +303,6 @@ export default function Page1(): React.ReactElement {
         }
       });
 
-      // Add general questions if we need more
       if (allRelevantQuestions.length < 4) {
         generalQuestions.forEach((question) => {
           if (!usedQuestions.has(question.question)) {
@@ -284,16 +312,14 @@ export default function Page1(): React.ReactElement {
         });
       }
 
-      // Shuffle the questions to randomize the order
-      const shuffledQuestions = [...allRelevantQuestions]
+      return [...allRelevantQuestions]
         .sort(() => Math.random() - 0.5)
-        .slice(0, 4); // Take only 4 questions (plus the initial question makes 5)
-
-      return shuffledQuestions;
+        .slice(0, 4);
     },
     []
   );
 
+  // Reuse the same handlers and progress calculation
   const handleOptionClick = useCallback((option: string): void => {
     setState((prevState) => {
       const newSelected = new Set(prevState.selectedOptions);
@@ -312,7 +338,6 @@ export default function Page1(): React.ReactElement {
   const handleNext = useCallback((): void => {
     if (state.selectedOptions.size > 0) {
       setState((prevState) => {
-        const newState = { ...prevState };
         const newAnswers = new Map(prevState.allAnswers);
         newAnswers.set(
           prevState.currentQuestion,
@@ -346,7 +371,6 @@ export default function Page1(): React.ReactElement {
   const handlePrevious = useCallback((): void => {
     if (state.currentQuestion > 0) {
       setState((prevState) => {
-        // Save current answers before going back
         const newAnswers = new Map(prevState.allAnswers);
         newAnswers.set(
           prevState.currentQuestion,
@@ -354,7 +378,6 @@ export default function Page1(): React.ReactElement {
         );
 
         const previousQuestion = prevState.currentQuestion - 1;
-        // Restore previous answers
         const previousAnswers =
           prevState.allAnswers.get(previousQuestion) || new Set();
 
@@ -368,15 +391,11 @@ export default function Page1(): React.ReactElement {
     }
   }, [state.currentQuestion]);
 
-  // Calculate progress - adjust to show 100% when reaching the last question
   const progress = useMemo(() => {
-    // Each question represents 20% of progress (100% / 5 questions)
     const progressPerQuestion = 100 / 5;
-    // Calculate current progress
     return Math.min(state.currentQuestion * progressPerQuestion, 100);
   }, [state.currentQuestion]);
 
-  // Progress bar segments
   const segments = useMemo(
     () => (
       <div className="absolute top-0 left-0 right-0 h-full flex">
@@ -406,9 +425,7 @@ export default function Page1(): React.ReactElement {
 
   return (
     <div className="min-h-screen flex flex-col relative" translate="no">
-      {/* Top Section with SOS and Progress Bar */}
       <div className="relative pt-20 sm:pt-8">
-        {/* SOS Button */}
         <Link
           href="/emergency"
           className="absolute top-4 left-4 bg-red-600 hover:bg-red-700 text-white font-bold w-12 h-12 rounded-full shadow-lg transform transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 flex items-center justify-center text-sm z-20"
@@ -416,27 +433,21 @@ export default function Page1(): React.ReactElement {
           <span translate="no">SOS</span>
         </Link>
 
-        {/* Progress Bar */}
         <div className="w-full max-w-xl mx-auto px-4">
           <div className="relative">
             <div className="flex items-center justify-center">
-              {/* Starting Circle */}
               <div className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-green-500 flex items-center justify-center text-white text-base sm:text-lg font-semibold z-10">
                 1
               </div>
-              {/* Progress Bar Line */}
               <div className="w-64 sm:w-96 mx-4 relative">
                 <div className="h-5 sm:h-4 bg-gray-200 rounded-full overflow-hidden">
-                  {/* Progress Fill */}
                   <div
                     className="absolute top-0 left-0 h-full bg-green-500 transition-all duration-300 ease-in-out"
                     style={{ width: `${progress}%` }}
                   />
-                  {/* Segments Container */}
                   {segments}
                 </div>
               </div>
-              {/* Ending Circle */}
               <div className="w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-green-500 flex items-center justify-center text-white text-base sm:text-lg font-semibold z-10">
                 5
               </div>
@@ -445,7 +456,6 @@ export default function Page1(): React.ReactElement {
         </div>
       </div>
 
-      {/* Question Content */}
       <QuestionContent
         question={currentQuestionData.question}
         options={currentQuestionData.options}
@@ -453,7 +463,6 @@ export default function Page1(): React.ReactElement {
         onOptionClick={handleOptionClick}
       />
 
-      {/* Navigation Buttons */}
       <div className="w-full max-w-3xl mx-auto p-4 flex justify-between items-center">
         <div className="flex items-center gap-4">
           {state.currentQuestion > 0 && (
@@ -478,7 +487,7 @@ export default function Page1(): React.ReactElement {
             ${
               state.selectedOptions.size > 0
                 ? "border-blue-500 bg-blue-500 text-white hover:bg-blue-600"
-                : "border-gray-600 text-gray-100 cursor-not-allowed "
+                : "border-gray-600 text-gray-100 cursor-not-allowed"
             }`}
           disabled={state.selectedOptions.size === 0}
         >
